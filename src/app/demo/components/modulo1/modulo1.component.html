@@ -1,0 +1,1189 @@
+<form [formGroup]='modulo1' (ngSubmit)="guardarModulo1(modulo1.value)" autocomplete="off">
+  <p-tabView>
+    <p-tabPanel header="Generales de Usuaria">
+      <div id="myData" #myData>
+      <h5>Sistema</h5>
+      <div class="card">
+        <div class="formgrid grid">
+          <div class="field col-12 md:col-3">
+            <strong><label for="expediente">Expediente</label></strong>
+            <input id="expediente" formControlName='expediente' type="text"
+              class="text-base text-color surface-400 p-2 border-1 border-solid surface-border border-round appearance-none outline-none w-full"
+              readonly>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="fechaingreso">Fecha Ingreso</label></strong>
+            <input id="fechaingreso" formControlName='fechaingreso' type="text"
+              class="text-base text-color surface-400 p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              readonly>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="horaingreso">Hora Ingreso</label></strong>
+            <input id="horaingreso" formControlName='horaingreso' type="text"
+              class="text-base text-color surface-400 p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              readonly>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="agente">Agente</label></strong>
+            <input id="agente" type="text" formControlName='agente'
+              class="text-base text-color surface-400 p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              readonly>
+          </div>
+        </div>
+      </div>
+   
+      <h5>Datos Personales</h5>
+      <div class="card">
+        <div class="field grid">
+          <div class="col-12 md:col-10">
+            <strong><label for="Nombre" class="col-12 mb-2 md:col-2 md:mb-0">Nombre:</label></strong>
+            <input autofocus id="Nombre" type="text" formControlName="nombre"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('nombre')?.dirty || this.modulo1.get('nombre')?.touched ">
+              <span *ngIf="this.modulo1.get('nombre')?.errors?.['required']">
+                (El Nombre no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-6">
+            <strong><label for="app" class="col-12 mb-2 md:col-2 md:mb-0">Apellido Paterno:</label></strong>
+            <input id="app" type="text" formControlName="app"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('app')?.dirty || this.modulo1.get('app')?.touched ">
+              <span *ngIf="this.modulo1.get('app')?.errors?.['required']">
+                (El Apellido Paterno no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-6">
+            <strong><label for="apm" class="col-12 mb-2 md:col-2 md:mb-0">Apellido Materno:</label></strong>
+            <input id="apm" type="text" formControlName="apm"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('apm')?.dirty || this.modulo1.get('apm')?.touched ">
+              <span *ngIf="this.modulo1.get('apm')?.errors?.['required']">
+                (El Apellido Materno no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="field col-12 md:col-3">
+            <strong><label for="Sexo" class="col-12 mb-2 md:col-2 md:mb-0">Sexo:</label></strong>
+            <select id="Sexo" formControlName="sexo"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Hombre</option>
+              <option>Mujer</option>
+            </select>
+            <div *ngIf="this.modulo1.get('sexo')?.dirty || this.modulo1.get('sexo')?.touched ">
+              <span *ngIf="this.modulo1.get('sexo')?.errors?.['required']">
+                (El sexo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="Genero" class="col-12 mb-2 md:col-2 md:mb-0">Genero:</label></strong>
+            <select id="Genero" formControlName="genero"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Femenino</option>
+              <option>Masculino</option>
+              <option>Lesbico</option>
+              <option>Gay</option>
+              <option>Trans</option>
+            </select>
+            <div *ngIf="this.modulo1.get('genero')?.dirty || this.modulo1.get('genero')?.touched ">
+              <span *ngIf="this.modulo1.get('genero')?.errors?.['required']">
+                (El genero no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="Edad" class="col-12 mb-2 md:col-2 md:mb-0">Edad:</label></strong>
+            <input id="Edad" formControlName="edad" type="number"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('edad')?.dirty || this.modulo1.get('edad')?.touched ">
+              <span *ngIf="this.modulo1.get('edad')?.errors?.['required']">
+                (La edad no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+
+          <div class="field col-12 md:col-3">
+            <strong><label for="fechaNac" class="col-12 mb-2 md:col-2 md:mb-0">Fecha de Nacimiento:</label></strong>
+            <!-- <input placeholder="    /     /" id="fechaNac" formControlName="fechaNacimiento" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"> -->
+            <p-calendar formControlName="fechaNacimiento"></p-calendar>
+            <div *ngIf="this.modulo1.get('fechaNacimiento')?.dirty || this.modulo1.get('fechaNacimiento')?.touched ">
+              <span *ngIf="this.modulo1.get('fechaNacimiento')?.errors?.['required']">
+                (La Fecha no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+
+        <div class="field grid">
+          <div class="col-12 md:col-3">
+            <strong><label for="correo" class="col-12 mb-2 md:col-2 md:mb-0">Correo Electronico:</label></strong>
+            <input placeholder="@" id="correo" formControlName="correo" type="email"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('correo')?.dirty || this.modulo1.get('correo')?.touched ">
+              <span *ngIf="this.modulo1.get('correo')?.errors?.['required']">
+                (El correo no puede quedar vacío)
+              </span>
+              <span *ngIf="this.modulo1.get('correo')?.errors?.['email']">
+                (Tiene que ser un correo valido)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="civil" class="col-12 mb-2 md:col-2 md:mb-0">Estado Civil</label></strong>
+            <select id="civil" formControlName="civil"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Casada</option>
+              <option>Concubinato</option>
+              <option>Soltera</option>
+              <option>Viuda</option>
+              <option>Union Libre</option>
+              <option>Sociedad de convivencia</option>
+              <option>Divorciada</option>
+              <option>Separada</option>
+              <option>N/A</option>
+            </select>
+            <div *ngIf="this.modulo1.get('civil')?.dirty || this.modulo1.get('civil')?.touched ">
+              <span *ngIf="this.modulo1.get('civil')?.errors?.['required']">
+                (El Estado civil no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="numHijos" class="col-12 mb-2 md:col-2 md:mb-0">N° Hijos:</label></strong>
+            <input id="numHijos" formControlName="numHijos" type="number"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('numHijos')?.dirty || this.modulo1.get('numHijos')?.touched ">
+              <span *ngIf="this.modulo1.get('numHijos')?.errors?.['required']">
+                (El numero de hijos no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="embarazada" class="col-12 mb-2 md:col-2 md:mb-0">¿Esta embarazada?</label></strong>
+            <select id="embarazada" formControlName="embarazada"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Si</option>
+              <option>No</option>
+            </select>
+            <div *ngIf="this.modulo1.get('embarazada')?.dirty || this.modulo1.get('embarazada')?.touched ">
+              <span *ngIf="this.modulo1.get('embarazada')?.errors?.['required']">
+                (El embarazo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h5>Domicilio</h5>
+      <div class="card">
+        <div class="field grid">
+          <div class="col-12 md:col-10">
+            <strong><label for="calle" class="col-12 mb-2 md:col-2 md:mb-0">Calle:</label></strong>
+            <input id="calle" formControlName="calle" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('calle')?.dirty || this.modulo1.get('calle')?.touched ">
+              <span *ngIf="this.modulo1.get('calle')?.errors?.['required']">
+                (La calle no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-6">
+            <strong><label for="colonia" class="col-12 mb-2 md:col-2 md:mb-0">Colonia:</label></strong>
+            <input id="colonia" formControlName="colonia" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('colonia')?.dirty || this.modulo1.get('colonia')?.touched ">
+              <span *ngIf="this.modulo1.get('colonia')?.errors?.['required']">
+                (La colonia no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="numero" class="col-12 mb-2 md:col-2 md:mb-0">Numero(#):</label></strong>
+            <input id="numero" formControlName="numero" type="number"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('numero')?.dirty || this.modulo1.get('numero')?.touched ">
+              <span *ngIf="this.modulo1.get('numero')?.errors?.['required']">
+                (El numero no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="field col-12 md:col-3">
+            <strong><label for="Municipio" class="col-12 mb-2 md:col-2 md:mb-0">Municipio:</label></strong>
+            <input id="Municipio" formControlName="municipio" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('municipio')?.dirty || this.modulo1.get('municipio')?.touched ">
+              <span *ngIf="this.modulo1.get('municipio')?.errors?.['required']">
+                (El municipio no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="Estado" class="col-12 mb-2 md:col-2 md:mb-0">Estado:</label></strong>
+            <input id="Estado" formControlName="estado" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('estado')?.dirty || this.modulo1.get('estado')?.touched ">
+              <span *ngIf="this.modulo1.get('estado')?.errors?.['required']">
+                (El estado no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="zonap" class="col-12 mb-2 md:col-2 md:mb-0">Zona de pertenencia:</label></strong>
+            <select id="zonap" formControlName="zonap"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Urbana</option>
+              <option>Rural</option>
+            </select>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="tel" class="col-12 mb-2 md:col-2 md:mb-0">Telefono:</label></strong>
+            <input id="tel" maxlength="14" formControlName="telefono" type="text"
+              mask="(000)000 00-00" class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('telefono')?.dirty || this.modulo1.get('telefono')?.touched ">
+              <span *ngIf="this.modulo1.get('telefono')?.errors?.['required']">
+                (El telefono no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </p-tabPanel>
+
+    <p-tabPanel header="Perfil de Usuaria">
+      <div class="card">
+        <div class="field grid">
+          <div class="col-12 md:col-2">
+            <strong><label for="actividadRealiza" class="col-12 mb-2 md:col-2 md:mb-0">Actividad que
+                realiza:</label></strong>
+            <select id="actividadRealiza" formControlName="actividadRealiza"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Estudia</option>
+              <option>Jubilada/Pensionada</option>
+              <option>Trabaja en el Hogar</option>
+              <option>Trabaja fuera del hogar</option>
+              <option>Actividad Ilicita</option>
+              <option>Agricola/Artesanal</option>
+              <option>Autoempleo</option>
+              <option>Auxiliar/Técnica</option>
+              <option>Actividad doméstica</option>
+              <option>Vigilancia/Seguridad</option>
+              <option>Chofer/Taxista</option>
+              <option>Comerciante</option>
+              <option>Dirección/Jefatura</option>
+              <option>Docencia</option>
+              <option>Profesionista</option>
+              <option>Empleada</option>
+              <option>Funcionaria Publica</option>
+              <option>Desempleado</option>
+              <option>Otro</option>
+              <option>Se desconoce</option>
+            </select>
+            <div *ngIf="this.modulo1.get('actividadRealiza')?.dirty || this.modulo1.get('actividadRealiza')?.touched ">
+              <span *ngIf="this.modulo1.get('actividadRealiza')?.errors?.['required']">
+                (La actividad que realiza no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="fuenteIngresos" class="col-12 mb-2 md:col-2 md:mb-0">Fuente de
+                ingresos:</label></strong>
+            <select id="fuenteIngresos" formControlName="fuenteIngresos"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Si</option>
+              <option>No</option>
+            </select>
+            <div *ngIf="this.modulo1.get('fuenteIngresos')?.dirty || this.modulo1.get('fuenteIngresos')?.touched ">
+              <span *ngIf="this.modulo1.get('fuenteIngresos')?.errors?.['required']">
+                (La fuente de ingresos no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="lugarTrabajo" class="col-12 mb-2 md:col-2 md:mb-0">Lugar de trabajo:</label></strong>
+            <select id="lugarTrabajo" formControlName="lugarTrabajo"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Calle-Vía Pública</option>
+              <option>Casa Ajena</option>
+              <option>Campo</option>
+              <option>Fabrica</option>
+              <option>Taller</option>
+              <option>Empresa/Negocio</option>
+              <option>Casa propia</option>
+              <option>Comercio</option>
+              <option>Institución</option>
+              <option>Escuela</option>
+            </select>
+            <div *ngIf="this.modulo1.get('lugarTrabajo')?.dirty || this.modulo1.get('lugarTrabajo')?.touched ">
+              <span *ngIf="this.modulo1.get('lugarTrabajo')?.errors?.['required']">
+                (El lugar de trabajo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="servicioMedico" class="col-12 mb-2 md:col-2 md:mb-0">Servicio medico:</label></strong>
+            <select id="servicioMedico" formControlName="servicioMedico"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Gobierno estatal</option>
+              <option>Seguro Privado</option>
+              <option>SECMAR</option>
+              <option>IMSS</option>
+              <option>Becas para el Bienestar</option>
+              <option>ISSSTE</option>
+              <option>PEMEX</option>
+              <option>Seguro Popular</option>
+              <option>Otro</option>
+              <option>Ninguno</option>
+            </select>
+            <div *ngIf="this.modulo1.get('servicioMedico')?.dirty || this.modulo1.get('servicioMedico')?.touched ">
+              <span *ngIf="this.modulo1.get('servicioMedico')?.errors?.['required']">
+                (El servicio medico no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="horario" class="col-12 mb-2 md:col-2 md:mb-0">Horario:</label></strong>
+            <textarea name="horario" id="horario" cols="30" rows="5" formControlName='horario' class="textareaResponsive"></textarea>
+            <div *ngIf="this.modulo1.get('horario')?.dirty || this.modulo1.get('horario')?.touched ">
+              <span *ngIf="this.modulo1.get('horario')?.errors?.['required']">
+                (El horario no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-2">
+            <strong><label for="formacionEducativa" class="col-12 mb-2 md:col-2 md:mb-0">Formación
+                Educativa:</label></strong>
+            <select id="formacionEducativa" formControlName="formacionEducativa"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Ninguno. No sabe Leer/Escribir</option>
+              <option>Ninguno. Sabe Leer/Escribir</option>
+              <option>Preescolar</option>
+              <option>Primaria</option>
+              <option>Secundaria</option>
+              <option>Preparatoria</option>
+              <option>Comercio/Técnico</option>
+              <option>Lic.</option>
+              <option>Maestría</option>
+              <option>Doctorado</option>
+              <option>No estudia</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('formacionEducativa')?.dirty || this.modulo1.get('formacionEducativa')?.touched ">
+              <span *ngIf="this.modulo1.get('formacionEducativa')?.errors?.['required']">
+                (La formacion educativa no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="Concluida" class="col-12 mb-2 md:col-2 md:mb-0">Concluida:</label></strong>
+            <select id="Concluida" formControlName="Concluida"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Si</option>
+              <option>No</option>
+            </select>
+            <div *ngIf="this.modulo1.get('Concluida')?.dirty || this.modulo1.get('Concluida')?.touched ">
+              <span *ngIf="this.modulo1.get('Concluida')?.errors?.['required']">
+                (La conclusión no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-2">
+            <strong><label for="encontrarTrabajo" class="col-12 mb-2 md:col-2 md:mb-0">¿Desea encontrar
+                trabajo?:</label></strong>
+            <select id="encontrarTrabajo" formControlName="encontrarTrabajo"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Si</option>
+              <option>No</option>
+            </select>
+            <div *ngIf="this.modulo1.get('encontrarTrabajo')?.dirty || this.modulo1.get('encontrarTrabajo')?.touched ">
+              <span *ngIf="this.modulo1.get('encontrarTrabajo')?.errors?.['required']">
+                (Encontrar trabajo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="capacitarse" class="col-12 mb-2 md:col-2 md:mb-0">¿Desea Capacitarse?:</label></strong>
+            <select id="capacitarse" formControlName="capacitarse"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Si</option>
+              <option>No</option>
+            </select>
+            <div *ngIf="this.modulo1.get('capacitarse')?.dirty || this.modulo1.get('capacitarse')?.touched ">
+              <span *ngIf="this.modulo1.get('capacitarse')?.errors?.['required']">
+                (Capacitarse no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="seguirEstudiando" class="col-12 mb-2 md:col-2 md:mb-0">¿Desea seguir con sus
+                estudios?:</label></strong>
+            <select id="seguirEstudiando" formControlName="seguirEstudiando"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Si</option>
+              <option>No</option>
+            </select>
+            <div *ngIf="this.modulo1.get('seguirEstudiando')?.dirty || this.modulo1.get('seguirEstudiando')?.touched ">
+              <span *ngIf="this.modulo1.get('seguirEstudiando')?.errors?.['required']">
+                (Seguir Estudiando no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-3">
+            <strong><label for="dificultadesSalud" class="col-12 mb-2 md:col-2 md:mb-0">Enfermedades o dificultades de
+                salud:</label></strong>
+            <select id="dificultadesSalud" formControlName="dificultadesSalud"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Crónica/Degenerativa</option>
+              <option>Ginecológicas urinarias</option>
+              <option>Respiratorias</option>
+              <option>Osteomuscular</option>
+              <option>Infecciosas</option>
+              <option>Neuropsiquiatrícas</option>
+              <option>Cardiovasculares</option>
+              <option>Ninguna</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('dificultadesSalud')?.dirty || this.modulo1.get('dificultadesSalud')?.touched ">
+              <span *ngIf="this.modulo1.get('dificultadesSalud')?.errors?.['required']">
+                (Dificultades de Salud no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="origenEnfermedad" class="col-12 mb-2 md:col-2 md:mb-0">Origen de la
+                Enfermedad:</label></strong>
+            <select id="origenEnfermedad" formControlName="origenEnfermedad"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Enfermedad</option>
+              <option>Edad avanzada</option>
+              <option>Nació asi</option>
+              <option>Accidente</option>
+              <option>Volencia</option>
+              <option>Otra Causa</option>
+              <option>Ninguna</option>
+            </select>
+            <div *ngIf="this.modulo1.get('origenEnfermedad')?.dirty || this.modulo1.get('origenEnfermedad')?.touched ">
+              <span *ngIf="this.modulo1.get('origenEnfermedad')?.errors?.['required']">
+                (Origen de la Enfermedad no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-4" *ngIf="this.modulo1.get('origenEnfermedad')?.value == 'Otra Causa' ">
+            <strong><label for="otraCausaEnfermedad" class="col-12 mb-2 md:col-2 md:mb-0">Otra causa de Origen de la
+                Enfermedad:</label></strong>
+            <input id="otraCausaEnfermedad" type="text" formControlName="otraCausaEnfermedad"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="discapacidad" class="col-12 mb-2 md:col-2 md:mb-0">Discapacidad:</label></strong>
+            <select id="discapacidad" formControlName="discapacidad"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Motriz</option>
+              <option>Auditiva</option>
+              <option>Intelectual</option>
+              <option>Visual</option>
+              <option>Ninguna</option>
+            </select>
+            <div *ngIf="this.modulo1.get('discapacidad')?.dirty || this.modulo1.get('discapacidad')?.touched ">
+              <span *ngIf="this.modulo1.get('discapacidad')?.errors?.['required']">
+                (Discapacidad no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="origenDiscapacidad" class="col-12 mb-2 md:col-2 md:mb-0">Origen de la
+                Discapacidad:</label></strong>
+            <select id="origenDiscapacidad" formControlName="origenDiscapacidad"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Enfermedad</option>
+              <option>Edad avanzada</option>
+              <option>Nació asi</option>
+              <option>Accidente</option>
+              <option>Volencia</option>
+              <option>Otra Causa</option>
+              <option>Ninguna</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('origenDiscapacidad')?.dirty || this.modulo1.get('origenDiscapacidad')?.touched ">
+              <span *ngIf="this.modulo1.get('origenDiscapacidad')?.errors?.['required']">
+                (Origen de la Discapacidad no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3" *ngIf="this.modulo1.get('origenDiscapacidad')?.value == 'Otra Causa' ">
+            <strong><label for="otraCausaDiscapacidad" class="col-12 mb-2 md:col-2 md:mb-0">Otra causa de
+                Discapacidad:</label></strong>
+            <input id="otraCausaDiscapacidad" type="text" formControlName="otraCausaDiscapacidad"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-6">
+            <strong><label for="Vivienda" class="col-12 mb-2 md:col-2 md:mb-0">Vivienda:</label></strong>
+            <select id="Vivienda" formControlName="Vivienda"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Comodato(prestada)</option>
+              <option>Propia</option>
+              <option>Rentada</option>
+            </select>
+            <div *ngIf="this.modulo1.get('Vivienda')?.dirty || this.modulo1.get('Vivienda')?.touched ">
+              <span *ngIf="this.modulo1.get('Vivienda')?.errors?.['required']">
+                (Vivienda no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-6">
+            <strong><label for="Adicciones" class="col-12 mb-2 md:col-2 md:mb-0">Adicciones:</label></strong>
+            <select id="Adicciones" formControlName="Adicciones"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Alcohol</option>
+              <option>Ansiolítico</option>
+              <option>Drogas sintéticas</option>
+              <option>Ninguno</option>
+              <option>Otro</option>
+            </select>
+            <div *ngIf="this.modulo1.get('Adicciones')?.dirty || this.modulo1.get('Adicciones')?.touched ">
+              <span *ngIf="this.modulo1.get('Adicciones')?.errors?.['required']">
+                (Adicciones no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+
+    <p-tabPanel header="Caso de Violencia (solo si aplica)">
+      <h5>Información</h5>
+      <div class="card">
+        <div class="field grid">
+          <div class="col-12 md:col-3">
+            <strong><label for="tipoViolencia" class="col-12 mb-2 md:col-2 md:mb-0">Tipo de violencia:</label></strong>
+            <input id="tipoViolencia" type="text" formControlName="tipoViolencia"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('tipoViolencia')?.dirty || this.modulo1.get('tipoViolencia')?.touched ">
+              <span *ngIf="this.modulo1.get('tipoViolencia')?.errors?.['required']">
+                (Tipo de violencia no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="ambitoViolencia" class="col-12 mb-2 md:col-2 md:mb-0">Ambito de
+                violencia:</label></strong>
+            <input id="ambitoViolencia" type="text" formControlName="ambitoViolencia"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('ambitoViolencia')?.dirty || this.modulo1.get('ambitoViolencia')?.touched ">
+              <span *ngIf="this.modulo1.get('ambitoViolencia')?.errors?.['required']">
+                (Ambito de Violencia no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="efectosViolencia" class="col-12 mb-2 md:col-2 md:mb-0">Efectos de la
+                violencia:</label></strong>
+            <input id="efectosViolencia" type="text" formControlName="efectosViolencia"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('efectosViolencia')?.dirty || this.modulo1.get('efectosViolencia')?.touched ">
+              <span *ngIf="this.modulo1.get('efectosViolencia')?.errors?.['required']">
+                (Efectos de la Violencia no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-12">
+            <strong><label for="narracionHechos" class="col-12 mb-2 md:col-2 md:mb-0">Narración de los
+                Hechos:</label></strong>
+            <textarea name="narracionHechos" id="narracionHechos" formControlName="narracionHechos" cols="130"
+              rows="10" class="textareaResponsive"></textarea>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-3">
+            <strong><label for="fechaHechos" class="col-12 mb-2 md:col-2 md:mb-0">Fecha de los hechos:</label></strong>
+            <p-calendar formControlName="fechaHechos"></p-calendar>
+            <!-- <input id="fechaHechos" type="text" formControlName="fechaHechos"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"> -->
+            <div *ngIf="this.modulo1.get('fechaHechos')?.dirty || this.modulo1.get('fechaHechos')?.touched ">
+              <span *ngIf="this.modulo1.get('fechaHechos')?.errors?.['required']">
+                (Fecha de los Hechos no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="LugardelosHechos" class="col-12 mb-2 md:col-2 md:mb-0">Lugar de los
+                hechos:</label></strong>
+            <input id="LugardelosHechos" type="text" formControlName="LugardelosHechos"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('LugardelosHechos')?.dirty || this.modulo1.get('LugardelosHechos')?.touched ">
+              <span *ngIf="this.modulo1.get('LugardelosHechos')?.errors?.['required']">
+                (Lugar de los Hechos no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-4">
+            <strong><label for="agresorDrogasAlcohol" class="col-12 mb-2 md:col-2 md:mb-0">¿El agresor estaba bajo los
+                efectos de drogas o alcohol?:</label></strong>
+            <input id="agresorDrogasAlcohol" type="text" formControlName="agresorDrogasAlcohol"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div
+              *ngIf="this.modulo1.get('agresorDrogasAlcohol')?.dirty || this.modulo1.get('agresorDrogasAlcohol')?.touched ">
+              <span *ngIf="this.modulo1.get('agresorDrogasAlcohol')?.errors?.['required']">
+                (Este campo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="usoArmas" class="col-12 mb-2 md:col-2 md:mb-0">¿Usó armas?:</label></strong>
+            <select id="usoArmas" formControlName="usoArmas"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Si</option>
+              <option>No</option>
+            </select>
+            <div *ngIf="this.modulo1.get('usoArmas')?.dirty || this.modulo1.get('usoArmas')?.touched ">
+              <span *ngIf="this.modulo1.get('usoArmas')?.errors?.['required']">
+                (Este campo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+
+    <p-tabPanel header="Perfil de Agresor (solo si aplica)">
+      <h5>Datos personlaes (Agresor)</h5>
+      <div class="card">
+        <div class="field grid">
+          <div class="col-12 md:col-2">
+            <strong><label for="nombreAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Nombre(Agresor):</label></strong>
+                <input type="text" formControlName ="nombreAgresor" class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('nombreAgresor')?.dirty || this.modulo1.get('nombreAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('nombreAgresor')?.errors?.['required']">
+                (Nombre del agresor no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="appAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Apellido Paterno(Agresor):</label></strong>
+              <input type="text" formControlName ="appAgresor" class="text-base text-color surface-overlay-2 p-2 border-1 border-solid border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('appAgresor')?.dirty || this.modulo1.get('appAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('appAgresor')?.errors?.['required']">
+                (Apellido del agresor no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="apmAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Apellido Materno(Agresor):</label></strong>
+              <input type="text" formControlName ="apmAgresor" class="text-base text-color surface-overlay-2 p-2 border-1 border-solid border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('apmAgresor')?.dirty || this.modulo1.get('apmAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('apmAgresor')?.errors?.['required']">
+                (Apellido del agresor no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="sexoAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Sexo(Agresor):</label></strong>
+            <select id="sexoAgresor" formControlName="sexoAgresor"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+            style="appearance: auto">
+            <option>Hombre</option>
+            <option>Mujer</option>
+          </select>
+            <div *ngIf="this.modulo1.get('sexoAgresor')?.dirty || this.modulo1.get('sexoAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('sexoAgresor')?.errors?.['required']">
+                (Sexo del agresor no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="generoAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Genero:</label></strong>
+            <select id="generoAgresor" formControlName="generoAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Femenino</option>
+              <option>Masculino</option>
+              <option>Lesbico</option>
+              <option>Gay</option>
+              <option>Trans</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('generoAgresor')?.dirty || this.modulo1.get('generoAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('generoAgresor')?.errors?.['required']">
+                (El  genero del agresor no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="field col-12 md:col-3">
+            <strong><label for="EdadAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Edad(Agresor):</label></strong>
+            <input id="Edad" formControlName="EdadAgresor" type="number"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('EdadAgresor')?.dirty || this.modulo1.get('EdadAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('EdadAgresor')?.errors?.['required']">
+                (La edad no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="fechaNacAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Fecha de Nacimiento(Agresor):</label></strong>
+            <!-- <input placeholder="dd/mm/aaaa" id="fechaNacAgresor" formControlName="fechaNacAgresor" type="text"
+            mask="99-99-9999"class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"> -->
+            <p-calendar formControlName="fechaNacAgresor"></p-calendar>
+            <div *ngIf="this.modulo1.get('fechaNacAgresor')?.dirty || this.modulo1.get('fechaNacAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('fechaNacAgresor')?.errors?.['required']">
+                (La Fecha no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <h5>Domicilio Agresor</h5>
+      <div class="card">
+        <div class="field grid">
+          <div class="col-12 md:col-10">
+            <strong><label for="calleAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Calle:</label></strong>
+            <input id="calleAgresor" formControlName="calleAgresor" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('calleAgresor')?.dirty || this.modulo1.get('calleAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('calleAgresor')?.errors?.['required']">
+                (La calle no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-6">
+            <strong><label for="coloniaAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Colonia:</label></strong>
+            <input id="coloniaAgresor" formControlName="coloniaAgresor" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('coloniaAgresor')?.dirty || this.modulo1.get('coloniaAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('coloniaAgresor')?.errors?.['required']">
+                (La colonia no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="numeroAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Número(#):</label></strong>
+            <input id="numeroAgresor" formControlName="numeroAgresor" type="number"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('numeroAgresor')?.dirty || this.modulo1.get('numeroAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('numeroAgresor')?.errors?.['required']">
+                (El numero no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="field col-12 md:col-3">
+            <strong><label for="MunicipioAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Municipio:</label></strong>
+            <input id="MunicipioAgresor" formControlName="MunicipioAgresor" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('MunicipioAgresor')?.dirty || this.modulo1.get('MunicipioAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('MunicipioAgresor')?.errors?.['required']">
+                (El municipio no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="EstadoAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Estado:</label></strong>
+            <input id="EstadoAgresor" formControlName="EstadoAgresor" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('EstadoAgresor')?.dirty || this.modulo1.get('EstadoAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('EstadoAgresor')?.errors?.['required']">
+                (El estado no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="zonapAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Zona de pertenencia:</label></strong>
+            <select id="zonapAgresor" formControlName="zonapAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Urbana</option>
+              <option>Rural</option>
+            </select>
+          </div>
+          <div class="field col-12 md:col-3">
+            <strong><label for="telAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Telefono:</label></strong>
+            <input placeholder="xxx-x-xx-xx " id="tel" maxlength="10" formControlName="telAgresor" type="text"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+            <div *ngIf="this.modulo1.get('telAgresor')?.dirty || this.modulo1.get('telAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('telAgresor')?.errors?.['required']">
+                (El telefono no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5>Perfil</h5>
+      <div class="card">
+        <div class="field grid">
+          <div class="col-12 md:col-2">
+            <strong><label for="actividadRealizaAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Actividad que
+                realiza:</label></strong>
+            <select id="actividadRealizaAgresor" formControlName="actividadRealizaAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Estudia</option>
+              <option>Jubilada/Pensionada</option>
+              <option>Trabaja en el Hogar</option>
+              <option>Trabaja fuera del hogar</option>
+              <option>Actividad Ilicita</option>
+              <option>Agricola/Artesanal</option>
+              <option>Autoempleo</option>
+              <option>Auxiliar/Técnica</option>
+              <option>Actividad doméstica</option>
+              <option>Vigilancia/Seguridad</option>
+              <option>Chofer/Taxista</option>
+              <option>Comerciante</option>
+              <option>Dirección/Jefatura</option>
+              <option>Docencia</option>
+              <option>Profesionista</option>
+              <option>Empleada</option>
+              <option>Funcionaria Publica</option>
+              <option>Desempleado</option>
+              <option>Otro</option>
+              <option>Se desconoce</option>
+            </select>
+            <div *ngIf="this.modulo1.get('actividadRealizaAgresor')?.dirty || this.modulo1.get('actividadRealizaAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('actividadRealizaAgresor')?.errors?.['required']">
+                (La actividad que realiza no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="fuenteIngresosAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Fuente de
+                ingresos:</label></strong>
+            <select id="fuenteIngresosAgresor" formControlName="fuenteIngresosAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Si</option>
+              <option>No</option>
+            </select>
+            <div *ngIf="this.modulo1.get('fuenteIngresosAgresor')?.dirty || this.modulo1.get('fuenteIngresosAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('fuenteIngresosAgresor')?.errors?.['required']">
+                (La fuente de ingresos no puede quedar vacía)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="lugarTrabajoAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Lugar de trabajo:</label></strong>
+            <select id="lugarTrabajoAgresor" formControlName="lugarTrabajoAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Calle-Vía Pública</option>
+              <option>Casa Ajena</option>
+              <option>Campo</option>
+              <option>Fabrica</option>
+              <option>Taller</option>
+              <option>Empresa/Negocio</option>
+              <option>Casa propia</option>
+              <option>Comercio</option>
+              <option>Institución</option>
+              <option>Escuela</option>
+            </select>
+            <div *ngIf="this.modulo1.get('lugarTrabajoAgresor')?.dirty || this.modulo1.get('lugarTrabajoAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('lugarTrabajoAgresor')?.errors?.['required']">
+                (El lugar de trabajo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="servicioMedicoAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Servicio medico:</label></strong>
+            <select id="servicioMedicoAgresor" formControlName="servicioMedicoAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Gobierno estatal</option>
+              <option>Seguro Privado</option>
+              <option>SECMAR</option>
+              <option>IMSS</option>
+              <option>Becas para el Bienestar</option>
+              <option>ISSSTE</option>
+              <option>PEMEX</option>
+              <option>Seguro Popular</option>
+              <option>Otro</option>
+              <option>Ninguno</option>
+            </select>
+            <div *ngIf="this.modulo1.get('servicioMedicoAgresor')?.dirty || this.modulo1.get('servicioMedicoAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('servicioMedicoAgresor')?.errors?.['required']">
+                (El servicio medico no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-2">
+            <strong><label for="horarioAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Horario:</label></strong>
+            <textarea name="horarioAgresor" id="horarioAgresor" cols="30" rows="5" formControlName='horarioAgresor' class="textareaResponsive"></textarea>
+            <div *ngIf="this.modulo1.get('horarioAgresor')?.dirty || this.modulo1.get('horarioAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('horarioAgresor')?.errors?.['required']">
+                (El horario no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-3">
+            <strong><label for="dificultadesSaludAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Enfermedades o dificultades de
+                salud:</label></strong>
+            <select id="dificultadesSaludAgresor" formControlName="dificultadesSaludAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Crónica/Degenerativa</option>
+              <option>Ginecológicas urinarias</option>
+              <option>Respiratorias</option>
+              <option>Osteomuscular</option>
+              <option>Infecciosas</option>
+              <option>Neuropsiquiatrícas</option>
+              <option>Cardiovasculares</option>
+              <option>Ninguna</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('dificultadesSaludAgresor')?.dirty || this.modulo1.get('dificultadesSaludAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('dificultadesSaludAgresor')?.errors?.['required']">
+                (Dificultades de Salud no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="origenEnfermedadAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Origen de la
+                Enfermedad:</label></strong>
+            <select id="origenEnfermedadAgresor" formControlName="origenEnfermedadAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Enfermedad</option>
+              <option>Edad avanzada</option>
+              <option>Nació asi</option>
+              <option>Accidente</option>
+              <option>Volencia</option>
+              <option>Otra Causa</option>
+            </select>
+            <div *ngIf="this.modulo1.get('origenEnfermedadAgresor')?.dirty || this.modulo1.get('origenEnfermedadAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('origenEnfermedadAgresor')?.errors?.['required']">
+                (Origen de la Enfermedad no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-4" *ngIf="this.modulo1.get('origenEnfermedadAgresor')?.value == 'Otra Causa' ">
+            <strong><label for="otraCausaEnfermedadAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Otra causa de Origen de la
+                Enfermedad:</label></strong>
+            <input id="otraCausaEnfermedadAgresor" type="text" formControlName="otraCausaEnfermedadAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="discapacidadAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Discapacidad:</label></strong>
+            <select id="discapacidadAgresor" formControlName="discapacidadAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Motriz</option>
+              <option>Auditiva</option>
+              <option>Intelectual</option>
+              <option>Visual</option>
+            </select>
+            <div *ngIf="this.modulo1.get('discapacidadAgresor')?.dirty || this.modulo1.get('discapacidadAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('discapacidadAgresor')?.errors?.['required']">
+                (Discapacidad no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="origenDiscapacidadAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Origen de la
+                Discapacidad:</label></strong>
+            <select id="origenDiscapacidadAgresor" formControlName="origenDiscapacidadAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Enfermedad</option>
+              <option>Edad avanzada</option>
+              <option>Nació asi</option>
+              <option>Accidente</option>
+              <option>Volencia</option>
+              <option>Otra Causa</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('origenDiscapacidadAgresor')?.dirty || this.modulo1.get('origenDiscapacidadAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('origenDiscapacidadAgresor')?.errors?.['required']">
+                (Origen de la Discapacidad no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3" *ngIf="this.modulo1.get('origenDiscapacidadAgresor')?.value == 'Otra Causa' ">
+            <strong><label for="otraCausaDiscapacidadAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Otra causa de
+                Discapacidad:</label></strong>
+            <input id="otraCausaDiscapacidadAgresor" type="text" formControlName="otraCausaDiscapacidadAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-3">
+            <strong><label for="ViviendaAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Vivienda:</label></strong>
+            <select id="ViviendaAgresor" formControlName="ViviendaAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Comodato(prestada)</option>
+              <option>Propia</option>
+              <option>Rentada</option>
+            </select>
+            <div *ngIf="this.modulo1.get('ViviendaAgresor')?.dirty || this.modulo1.get('ViviendaAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('ViviendaAgresor')?.errors?.['required']">
+                (Vivienda no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="AdiccionesAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Adicciones:</label></strong>
+            <select id="AdiccionesAgresor" formControlName="AdiccionesAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Alcohol</option>
+              <option>Ansiolítico</option>
+              <option>Drogas sintéticas</option>
+              <option>Ninguno</option>
+              <option>Otro</option>
+            </select>
+            <div *ngIf="this.modulo1.get('AdiccionesAgresor')?.dirty || this.modulo1.get('AdiccionesAgresor')?.touched ">
+              <span *ngIf="this.modulo1.get('AdiccionesAgresor')?.errors?.['required']">
+                (Adicciones no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="EstadoNacimientoAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Estado de Nacimiento:</label></strong>
+            <input id="EstadoNacimientoAgresor" type="text" formControlName="EstadoNacimientoAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+          </div>
+          <div class="col-12 md:col-3">
+            <strong><label for="MediaFiliacionAgresor" class="col-12 mb-2 md:col-2 md:mb-0">Media Filiacion:</label></strong>
+            <input id="MediaFiliacionAgresor" type="text" formControlName="MediaFiliacionAgresor"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+
+    <p-tabPanel header="Servicio">
+      <div class="card">
+        <div class="field grid">
+          <div class="col-12 md:col-4">
+            <strong><label for="servicioReferencia" class="col-12 mb-2 md:col-2 md:mb-0">Servicio de Referencia:</label></strong>
+            <select id="servicioReferencia" formControlName="servicioReferencia"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Bolsa de empleo</option>
+              <option>Proceso de formación</option>
+              <option>Vivienda</option>
+              <option>Proyectos productivos</option>
+              <option>Canalizacion</option>
+              <option>Capacitacion para el trabajo</option>
+              <option>Salud</option>
+              <option>Servicios de prevencion de violencia</option>
+              <option>Cursos y talleres</option>
+              <option>Trabajo social</option>
+              <option>Psicologia</option>
+              <option>Tramites y gestiones</option>
+              <option>Platicas</option>
+              <option>Vinculacion</option>
+              <option>Otros</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('servicioReferencia')?.dirty || this.modulo1.get('servicioReferencia')?.touched ">
+              <span *ngIf="this.modulo1.get('servicioReferencia')?.errors?.['required']">
+                (Este campo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-4">
+            <strong><label for="EstatusServicio" class="col-12 mb-2 md:col-2 md:mb-0">Estatus de Servicio:</label></strong>
+            <select id="EstatusServicio" formControlName="EstatusServicio"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>INICIO</option>
+              <option>EN PROCESO</option>
+              <option>CONCLUIDO</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('EstatusServicio')?.dirty || this.modulo1.get('EstatusServicio')?.touched ">
+              <span *ngIf="this.modulo1.get('EstatusServicio')?.errors?.['required']">
+                (Este campo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+          <div class="col-12 md:col-4">
+            <strong><label for="ejeServicio" class="col-12 mb-2 md:col-2 md:mb-0">Eje:</label></strong>
+            <select id="ejeServicio" formControlName="ejeServicio"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full"
+              style="appearance: auto">
+              <option>Int. de la prespectiva de Genero</option>
+              <option>Agencia economica de las Mujeres</option>
+              <option>Agenda de genero</option>
+            </select>
+            <div
+              *ngIf="this.modulo1.get('ejeServicio')?.dirty || this.modulo1.get('ejeServicio')?.touched ">
+              <span *ngIf="this.modulo1.get('ejeServicio')?.errors?.['required']">
+                (Este campo no puede quedar vacío)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field grid">
+          <div class="col-12 md:col-6">
+            <strong><label for="lineaAccion" class="col-12 mb-2 md:col-2 md:mb-0">Linea de Acción:</label></strong>
+            <input type="text" id ="lineaAccion" formControlName ="lineaAccion" class="text-base text-color sruface-overlay p-2 border-2 border-solid border-round appearance-none outline-none focus:border-primary w-full">
+          </div>
+          <div class="col-12 md:col-6">
+            <strong><label for="Observaciones" class="col-12 mb-2 md:col-2 md:mb-0">Observaciones:</label></strong>
+            <input type="text" id ="Observaciones" formControlName ="Observaciones" class="text-base text-color sruface-overlay p-2 border-2 border-solid border-round appearance-none outline-none focus:border-primary w-full">
+          </div>
+        </div>
+      </div>
+      <div align = "center">
+        <button pButton type="submit" [disabled]="modulo1.invalid">Guardar</button>
+
+      </div>
+
+    </p-tabPanel>
+
+  </p-tabView>
+</form>

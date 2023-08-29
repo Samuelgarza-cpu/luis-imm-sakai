@@ -1,0 +1,36 @@
+
+<p-confirmDialog header="Confirmación" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="card">
+    <p-table [value]="registrosM1" responsiveLayout="stack" [breakpoint]="'960px'" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="caption">
+            MODULO 1
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>Expediente</th>
+                <th>Fecha Ingreso</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Agente</th>
+                <th>Opciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-reg let-columns="columns">
+            <tr>
+                <td><span class="p-column-title">Expediente</span>{{reg.id_expediente}}</td>
+                <td><span class="p-column-title">Fecha Ingreso</span>{{reg.fechaIngreso.substring(0,10)}}</td>
+                <td><span class="p-column-title">Nombre</span>{{reg.nombre}}</td>
+                <td><span class="p-column-title">Apellido Paterno</span>{{reg.app}}</td>
+                <td><span class="p-column-title">Apellido Materno</span>{{reg.apm}}</td>
+                <td><span class="p-column-title">Agente</span>{{reg.agente}}</td>
+                <td><span class="p-buttonset">
+                    <button pButton pRipple label="Modificar" icon="pi pi-file-edit" styleClass="p-button-sm" [routerLink]="['/dashboard/modificar', reg.id_expediente]"></button>
+                    <button pButton pRipple label="Imprimir" icon="pi pi-print" styleClass="p-button-sm" (click)="setPDF(reg)"></button>
+                    <button pButton pRipple label="Borrar" icon="pi pi-trash" styleClass="p-button-sm" (click)="borrarM1(reg.id_expediente)"></button>
+                </span></td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
